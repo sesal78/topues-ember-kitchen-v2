@@ -1,8 +1,8 @@
 # Ember Kitchen v2 — Build Status
 
-**Last updated:** 2026-04-12 by Chief  
+**Last updated:** 2026-04-13 by Chief  
 **Task:** TASK-009  
-**Status:** Code complete — pending images, GitHub push, and Dokploy deploy
+**Status:** DEPLOYED — live at https://ember-kitchen-v2-115-69-2-80.traefik.me
 
 ---
 
@@ -19,13 +19,16 @@
 - [x] Gallery with 4-image masonry grid and hover effects
 - [x] Footer with navigation, contact, socials
 - [x] npm run build passing in sandbox (zero errors)
+- [x] **Images** — 6 images generated via Gemini 3.1 Flash (Google GenAI SDK)
+- [x] **GitHub push** — repo sesal78/topues-ember-kitchen-v2 created and pushed
+- [x] **Dokploy deployment** — ember-kitchen-v2 app in Portfolio Demos, Dockerfile build
+- [x] **Quality review** — submitted to pending queue
 
 ## What Is Pending
 
-- [ ] **Images** — 6 images need to be generated and saved to `public/images/`
-- [ ] **GitHub push** — create repo sesal78/topues-ember-kitchen-v2 and push
-- [ ] **Dokploy deployment** — create ember-kitchen-v2 app in Portfolio Demos project
-- [ ] **Quality review** — waiting on deployed URL
+- [ ] **Quality gate** — awaiting hourly quality review pickup
+- [ ] **Reviewer UAT** — Chief spawns after quality gate pass
+- [ ] **Seun approval** — after UAT pass
 
 ---
 
