@@ -7,7 +7,7 @@
 @import "@fontsource/dm-sans/500.css";
 @import "@fontsource/dm-sans/600.css";
 
-:root {
+@theme {
   /* Ember Kitchen Brand Palette */
   --color-charcoal: #1a1a18;
   --color-terracotta: #c4623a;
@@ -23,116 +23,117 @@
   --font-body: "DM Sans", sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-charcoal);
+    color: var(--color-cream);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  button, a.button {
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 300ms ease;
+    text-decoration: none;
+  }
+
+  a {
+    color: var(--color-terracotta);
+    text-decoration: none;
+    transition: color 300ms ease;
+  }
+
+  a:hover {
+    color: var(--color-ember);
+    text-decoration: underline;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-}
+@layer components {
+  /* Display headings */
+  .heading-display {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
 
-body {
-  background-color: var(--color-charcoal);
-  color: var(--color-cream);
-  font-family: var(--font-body);
-  font-weight: 400;
-  line-height: 1.6;
-}
+  /* Headline headings */
+  .heading-headline {
+    font-family: var(--font-headline);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.2;
-}
+  /* Body text */
+  .text-body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
 
-/* Display headings */
-.heading-display {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 5rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
+  /* Label/small text */
+  .text-label {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
 
-/* Headline headings */
-.heading-headline {
-  font-family: var(--font-headline);
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 600;
-  line-height: 1.2;
-}
+  /* Primary CTA */
+  .btn-primary {
+    background-color: var(--color-terracotta);
+    color: var(--color-charcoal);
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+    border: none;
+  }
 
-/* Body text */
-.text-body {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
-  font-weight: 400;
-}
+  .btn-primary:hover {
+    background-color: var(--color-ember);
+    transform: translateY(-2px);
+  }
 
-/* Label/small text */
-.text-label {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
+  /* Secondary CTA */
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-cream);
+    border: 2px solid var(--color-cream);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
 
-/* Button base styles */
-button, a.button {
-  font-family: var(--font-body);
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 300ms ease;
-  text-decoration: none;
-  display: inline-block;
-}
+  .btn-secondary:hover {
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+  }
 
-/* Primary CTA */
-.btn-primary {
-  background-color: var(--color-terracotta);
-  color: var(--color-charcoal);
-  padding: 0.875rem 1.75rem;
-  font-size: 0.95rem;
-  border: none;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-ember);
-  transform: translateY(-2px);
-}
-
-/* Secondary CTA */
-.btn-secondary {
-  background-color: transparent;
-  color: var(--color-cream);
-  border: 2px solid var(--color-cream);
-  padding: 0.75rem 1.5rem;
-  font-size: 0.95rem;
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-cream);
-  color: var(--color-charcoal);
-}
-
-/* Links */
-a {
-  color: var(--color-terracotta);
-  text-decoration: none;
-  transition: color 300ms ease;
-}
-
-a:hover {
-  color: var(--color-ember);
-  text-decoration: underline;
-}
-
-/* Utility: no decoration on hover */
-a.no-underline:hover {
-  text-decoration: none;
+  /* Utility: no decoration on hover */
+  a.no-underline:hover {
+    text-decoration: none;
+  }
 }
