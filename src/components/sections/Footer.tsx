@@ -64,10 +64,10 @@ export function Footer() {
         <div className="border-t border-outline-muted pt-8 flex flex-col sm:flex-row items-center justify-between text-sm text-outline-muted">
           <p>&copy; 2026 Ember Kitchen. All rights reserved.</p>
           <div className="flex gap-6 mt-4 sm:mt-0">
-            <a href="#" className="hover:text-terracotta transition">
+            <a href="https://www.instagram.com/emberkitchen" className="hover:text-terracotta transition">
               Instagram
             </a>
-            <a href="#" className="hover:text-terracotta transition">
+            <a href="https://www.facebook.com/emberkitchen" className="hover:text-terracotta transition">
               Facebook
             </a>
           </div>
