@@ -4,17 +4,7 @@ import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   // Close mobile menu on resize to desktop
   useEffect(() => {
@@ -44,27 +34,22 @@ export function Navigation() {
   }
 
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        'bg-charcoal text-cream',
-        isScrolled || isMobileMenuOpen ? 'backdrop-blur-md bg-opacity-95' : 'bg-opacity-0'
-      )}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    // No backdrop-filter here: it would make this bar the container of the fixed full-screen mobile menu.
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-charcoal text-cream">
+      <div className="frame py-4 flex items-center justify-between">
         <a href="#" className="text-2xl font-display font-bold z-50">
           Ember
         </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#story" className="text-sm hover:text-terracotta transition">
+          <a href="#story" className="text-base text-cream hover:text-ember transition-colors">
             Our Story
           </a>
-          <a href="#menu" className="text-sm hover:text-terracotta transition">
+          <a href="#menu" className="text-base text-cream hover:text-ember transition-colors">
             Menu
           </a>
-          <a href="#gallery" className="text-sm hover:text-terracotta transition">
+          <a href="#gallery" className="text-base text-cream hover:text-ember transition-colors">
             Gallery
           </a>
           <a href="#reserve" className="btn-primary">
@@ -81,19 +66,19 @@ export function Navigation() {
         >
           <span
             className={cn(
-              'block w-6 h-0.5 bg-cream transition-all duration-300',
+              'block w-6 h-0.5 bg-cream transition duration-300',
               isMobileMenuOpen && 'rotate-45 translate-y-2'
             )}
           />
           <span
             className={cn(
-              'block w-6 h-0.5 bg-cream transition-all duration-300',
+              'block w-6 h-0.5 bg-cream transition duration-300',
               isMobileMenuOpen && 'opacity-0'
             )}
           />
           <span
             className={cn(
-              'block w-6 h-0.5 bg-cream transition-all duration-300',
+              'block w-6 h-0.5 bg-cream transition duration-300',
               isMobileMenuOpen && '-rotate-45 -translate-y-2'
             )}
           />
@@ -103,7 +88,7 @@ export function Navigation() {
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          'fixed inset-0 bg-charcoal/98 z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 md:hidden',
+          'fixed inset-0 bg-charcoal/98 z-40 flex flex-col items-center justify-center gap-8 transition-opacity duration-300 md:hidden',
           isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         )}
       >

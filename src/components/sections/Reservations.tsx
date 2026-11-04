@@ -2,20 +2,20 @@
 
 export function Reservations() {
   return (
-    <section id="reserve" className="relative py-24 md:py-32 bg-charcoal overflow-hidden">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="reserve" className="relative py-20 md:py-28 bg-charcoal overflow-hidden">
+      <div className="frame">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="heading-headline mb-4 text-cream">Reserve Your Table</h2>
-          <p className="text-cream/80 text-lg">
+        <div className="mb-12 md:mb-16">
+          <h2 className="rise heading-headline mb-4 text-cream">Reserve Your Table</h2>
+          <p className="rise d1 text-cream text-lg">
             Join us for an unforgettable evening of fire, passion, and culinary craft
           </p>
         </div>
 
         {/* Two-Column Layout */}
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Reservation Form */}
-          <div>
+          <div className="rise lg:col-span-5">
             <form className="space-y-4">
               <input
                 type="text"
@@ -53,10 +53,10 @@ export function Reservations() {
           </div>
 
           {/* Operating Hours & Info */}
-          <div className="space-y-8">
+          <div className="rise d1 lg:col-span-6 lg:col-start-7 space-y-10">
             <div>
-              <h3 className="text-label text-terracotta mb-4 uppercase">Hours of Operation</h3>
-              <div className="space-y-3 text-cream/90">
+              <h3 className="text-label text-terracotta-text mb-4">Hours of Operation</h3>
+              <div className="space-y-3 text-cream text-lg">
                 <div className="flex justify-between">
                   <span>Lunch</span>
                   <span className="text-outline-muted">Wed–Fri 11:30am–2:30pm</span>
@@ -73,31 +73,27 @@ export function Reservations() {
             </div>
 
             <div>
-              <h3 className="text-label text-terracotta mb-4 uppercase">Location & Contact</h3>
-              <div className="space-y-2 text-cream/90">
+              <h3 className="text-label text-terracotta-text mb-4">Location & Contact</h3>
+              <div className="space-y-2 text-cream text-lg">
                 <p>Melbourne, Victoria</p>
-                <a href="tel:+61390000000" className="block text-terracotta hover:text-ember transition">
+                <a href="tel:+61390000000" className="block text-terracotta-text hover:text-ember transition-colors">
                   +61 3 9000 0000
                 </a>
-                <a href="mailto:reservations@emberkitchen.com" className="block text-terracotta hover:text-ember transition">
+                <a href="mailto:reservations@emberkitchen.com" className="block text-terracotta-text hover:text-ember transition-colors">
                   reservations@emberkitchen.com
                 </a>
               </div>
             </div>
 
             <div>
-              <h3 className="text-label text-terracotta mb-4 uppercase">Private Events</h3>
-              <p className="text-cream/90 text-sm leading-relaxed">
+              <h3 className="text-label text-terracotta-text mb-4">Private Events</h3>
+              <p className="text-cream text-lg leading-relaxed">
                 Celebrate special occasions with our private dining options. Contact us for bespoke menu planning and catering.
               </p>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-terracotta/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-ember/5 rounded-full blur-3xl -ml-36 -mb-36 pointer-events-none" />
     </section>
   )
 }

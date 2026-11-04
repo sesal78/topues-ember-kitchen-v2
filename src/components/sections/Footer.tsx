@@ -2,8 +2,8 @@
 
 export function Footer() {
   return (
-    <footer className="bg-surface-container border-t border-outline-muted py-16 px-6">
-      <div className="max-w-5xl mx-auto">
+    <footer className="bg-surface-container py-16">
+      <div className="frame">
         {/* Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
@@ -61,7 +61,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-outline-muted pt-8 flex flex-col sm:flex-row items-center justify-between text-sm text-outline-muted">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-sm text-outline-muted">
           <p>&copy; 2026 Ember Kitchen. All rights reserved.</p>
           <div className="flex gap-6 mt-4 sm:mt-0">
             <a href="https://www.instagram.com/emberkitchen" className="hover:text-terracotta transition">

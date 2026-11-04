@@ -72,54 +72,53 @@ export function Menu() {
   const items = menuData[activeCategory]
 
   return (
-    <section id="menu" className="relative py-24 md:py-32 bg-charcoal overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6 z-10 w-full">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="heading-headline mb-4 text-cream">Our Menu</h2>
-          <p className="text-cream/80 text-lg">
-            Crafted with fire, passion, and the finest ingredients
-          </p>
-        </div>
+    <section id="menu" className="relative py-20 md:py-28 bg-surface-container overflow-hidden">
+      <div className="frame">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8">
+          {/* Header and category tabs */}
+          <div className="lg:col-span-5">
+            <h2 className="rise heading-headline mb-4 text-cream">Our Menu</h2>
+            <p className="rise d1 text-cream text-lg mb-12">
+              Crafted with fire, passion, and the finest ingredients
+            </p>
 
-        {/* Category Tabs */}
-        <div className="flex justify-center gap-8 mb-16 border-b border-outline-muted pb-8 flex-wrap">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={cn(
-                'text-label px-4 py-2 transition-all duration-300 uppercase tracking-wider',
-                activeCategory === category
-                  ? 'text-terracotta border-b-2 border-terracotta pb-6'
-                  : 'text-outline-muted hover:text-cream'
-              )}
-            >
-              {category === 'starters' && 'Ember Appetizers'}
-              {category === 'mains' && 'Heart of the Kitchen'}
-              {category === 'desserts' && 'Sweet Finale'}
-            </button>
-          ))}
-        </div>
-
-        {/* Menu Items */}
-        <div className="space-y-8 max-w-2xl mx-auto">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="border-b border-outline-muted/50 pb-8 last:border-b-0"
-            >
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl text-cream font-semibold">{item.name}</h3>
-                <span className="text-terracotta font-semibold ml-4 whitespace-nowrap">
-                  ${item.price}
-                </span>
-              </div>
-              <p className="text-cream/75 text-base leading-relaxed">
-                {item.description}
-              </p>
+            <div className="rise d2 flex flex-wrap lg:flex-col items-start gap-x-8 gap-y-2">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  aria-pressed={activeCategory === category}
+                  className={cn(
+                    'font-headline text-2xl md:text-4xl text-left py-1 transition-colors duration-300',
+                    activeCategory === category
+                      ? 'text-terracotta-text'
+                      : 'text-outline-muted hover:text-cream'
+                  )}
+                >
+                  {category === 'starters' && 'Ember Appetizers'}
+                  {category === 'mains' && 'Heart of the Kitchen'}
+                  {category === 'desserts' && 'Sweet Finale'}
+                </button>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Menu Items */}
+          <div className="rise d1 lg:col-span-6 lg:col-start-7 space-y-10 lg:pt-4">
+            {items.map((item, index) => (
+              <div key={index}>
+                <div className="flex justify-between items-start gap-6 mb-2">
+                  <h3 className="text-2xl md:text-3xl text-cream font-semibold">{item.name}</h3>
+                  <span className="text-terracotta-text text-xl md:text-2xl font-semibold whitespace-nowrap">
+                    ${item.price}
+                  </span>
+                </div>
+                <p className="text-cream text-lg leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

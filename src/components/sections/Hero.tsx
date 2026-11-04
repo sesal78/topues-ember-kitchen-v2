@@ -1,10 +1,23 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import { ovenStatus } from '@/lib/hours'
+
 export function Hero() {
+  // Set after mount so the server and browser agree; the hours below stay as the plain fallback.
+  const [status, setStatus] = useState('')
+
+  useEffect(() => {
+    const update = () => setStatus(ovenStatus(new Date()))
+    update()
+    const timer = setInterval(update, 60_000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[calc(100svh-5rem)] flex items-end overflow-hidden"
       style={{
         backgroundImage: 'url(/images/hero-ember-fire.jpg)',
         backgroundSize: 'cover',
@@ -12,25 +25,27 @@ export function Hero() {
         backgroundAttachment: 'fixed',
       }}
     >
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-charcoal/60 z-0" />
+      {/* Flat scrim for text legibility */}
+      <div className="absolute inset-0 bg-charcoal/45 z-0" />
 
       {/* Hero content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 py-24 text-center">
-        <h1 className="heading-display mb-6 text-cream drop-shadow-lg">
-          Ember Kitchen
-        </h1>
-        <p className="text-xl md:text-2xl text-cream mb-8 font-light drop-shadow-md">
-          Where fire meets finesse
-        </p>
-        <p className="text-lg text-cream/90 mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-          Experience transformative cuisine born from carefully sourced ingredients and precision flame control. Every dish is a testament to culinary craft and unbridled hospitality.
-        </p>
-        <button className="btn-primary shadow-lg">Reserve Your Table</button>
+      <div className="frame relative z-10 pt-24 pb-16 md:pb-24">
+        <div className="max-w-3xl">
+          <h1 className="heading-display hero-in mb-6 text-cream">Ember Kitchen</h1>
+          <p className="hero-in d1 text-xl md:text-3xl text-cream mb-6 font-light">
+            Where fire meets finesse
+          </p>
+          <p className="hero-in d2 text-lg text-cream mb-10 max-w-xl leading-relaxed">
+            Experience transformative cuisine born from carefully sourced ingredients and precision flame control. Every dish is a testament to culinary craft and unbridled hospitality.
+          </p>
+          <div className="hero-in d3 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <a href="#reserve" className="btn-primary">
+              Reserve Your Table
+            </a>
+            {status && <p className="text-cream text-base">{status}</p>}
+          </div>
+        </div>
       </div>
-
-      {/* Gradient overlay bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-charcoal to-transparent pointer-events-none z-5" />
     </section>
   )
 }
